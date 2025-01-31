@@ -6,6 +6,8 @@
 *.lo
 *.o
 *.obj
+build
+*.user
 
 # Precompiled Headers
 *.gch

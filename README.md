@@ -37,15 +37,17 @@ Ensure the library is compiled and the include/ directory is accessible in your 
 
 int main() {
     std::string plaintext = "Hello, ucrypt!";
+
+    // Generating secret key
     std::string key = ucrypt::build_key(plaintext, 123, 10000);
 
     // Encrypt
     std::string encrypted_message = ucrypt::encrypt(plaintext, key);
-    std::cout << "Encrypted Message: " << encrypted_message << std::endl;
+    std::cout << "Encrypted Message: " << encrypted_message << '\n';
 
     // Decrypt
     std::string decrypted_message = ucrypt::decrypt(encrypted_message, key);
-    std::cout << "Decrypted Message: " << decrypted_message << std::endl;
+    std::cout << "Decrypted Message: " << decrypted_message << '\n';
 
     return 0;
 }
