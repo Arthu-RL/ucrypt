@@ -7,7 +7,7 @@ namespace ucrypt
     /**
      * @brief Generates a one-time pad key for encryption.
      *
-     * @param text The plaintext message for which the key is generated.
+     * @param text length The plaintext length for which the key is generated.
      * @param seed_for_key_gen The seed value used to initialize the random number generator.
      * @param limit_randint_gen The upper limit for random integer generation.
      * @return std::string The generated key, with the same length as the input text.
@@ -15,7 +15,7 @@ namespace ucrypt
      * This function uses a seeded random number generator to create a pseudo-random key
      * for encrypting the input text. The generated key is suitable for XOR-based encryption.
      */
-    std::string build_key(const std::string& text,
+    std::string build_key(const std::size_t& text_length,
                           const std::size_t& seed_for_key_gen,
                           const std::size_t& limit_randint_gen);
 

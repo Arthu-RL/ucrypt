@@ -2,10 +2,11 @@
 
 #include <fstream>
 #include <sstream>
+#include <iostream>
 
-std::string ucrypt::build_key(const std::string& text,
-                       const std::size_t& seed_for_key_gen,
-                       const std::size_t& limit_randint_gen)
+std::string ucrypt::build_key(const std::size_t& text_length,
+                              const std::size_t& seed_for_key_gen,
+                              const std::size_t& limit_randint_gen)
 {
     auto now = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 
@@ -13,10 +14,11 @@ std::string ucrypt::build_key(const std::string& text,
     std::uniform_int_distribution<> dist(1, limit_randint_gen);
 
     std::string key = "";
-    key.reserve(text.size());
-    for (std::size_t i = 0; i < text.size(); ++i)
+    key.reserve(text_length);
+    for (std::size_t i = 0; i < text_length; ++i)
     {
         key += char(dist(gen)*seed_for_key_gen%256);
+        std::cout << dist(gen)<< '\n';
     }
 
     return key;
