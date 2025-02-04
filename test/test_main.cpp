@@ -3,7 +3,7 @@
 
 int main()
 {
-    std::string to_encrypt = "testing code...";
+    std::string to_encrypt = "Testing ucrypt code...";
     std::string key = ucrypt::build_key(to_encrypt.size(), 123, 10000);
 
     const std::string secret_file = "/tmp/secret.txt";

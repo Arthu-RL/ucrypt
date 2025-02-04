@@ -11,7 +11,7 @@ std::string ucrypt::build_key(const std::size_t& text_length,
     auto now = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 
     std::mt19937 gen(now);
-    std::uniform_int_distribution<> dist(1, limit_randint_gen);
+    std::uniform_int_distribution<int> dist(1, limit_randint_gen);
 
     std::string key = "";
     key.reserve(text_length);
