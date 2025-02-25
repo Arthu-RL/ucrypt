@@ -13,12 +13,11 @@ std::string ucrypt::build_key(const std::size_t& text_length,
     std::mt19937 gen(now);
     std::uniform_int_distribution<int> dist(1, limit_randint_gen);
 
-    std::string key = "";
-    key.reserve(text_length);
+    std::string key(text_length, '\0');
+
     for (std::size_t i = 0; i < text_length; ++i)
     {
-        key += char(dist(gen)*seed_for_key_gen%256);
-        std::cout << dist(gen)<< '\n';
+        key[i] = static_cast<char>(dist(gen)*seed_for_key_gen%256);
     }
 
     return key;
